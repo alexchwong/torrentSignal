@@ -1,0 +1,7 @@
+G_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) -DSPLICEWIZ -DWITH_HTSLIB
+PKG_LIBS = $(SHLIB_OPENMP_CXXFLAGS) -lz -DSPLICEWIZ -DWITH_HTSLIB
+
+PKG_LIBS+=$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript" -e \
+    'Rhtslib::pkgconfig("PKG_LIBS")')
+PKG_CXXFLAGS+=$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript" -e \
+    'Rhtslib::pkgconfig("PKG_CPPFLAGS")')
